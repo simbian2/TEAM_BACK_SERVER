@@ -4,6 +4,9 @@ const Sequelize = require('sequelize');
 const env = process.env.NODE_ENV || 'development';
 const config = require(__dirname + '/../config/config.json')[env];
 const FeedBack = require('./FeedBack')
+const FAQ = require('./FAQ')
+const calculator1 = require('./calculator1')
+const calculator2 = require('./calculator2')
 const db = {};
 
 let sequelize;
@@ -15,6 +18,12 @@ if (config.use_env_variable) {
 
 db.FeedBack = FeedBack
 FeedBack.init(sequelize)
+db.FAQ = FAQ
+FAQ.init(sequelize)
+db.calculator1 = calculator1
+calculator1.init(sequelize)
+db.calculator2 = calculator2
+calculator2.init(sequelize)
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
